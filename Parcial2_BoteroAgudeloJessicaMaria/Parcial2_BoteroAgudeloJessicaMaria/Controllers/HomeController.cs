@@ -1,4 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Parcial2_BoteroAgudeloJessicaMaria.DAL;
+using Parcial2_BoteroAgudeloJessicaMaria.DAL.Entities;
+using Parcial2_BoteroAgudeloJessicaMaria.Migrations;
 using Parcial2_BoteroAgudeloJessicaMaria.Models;
 using System.Diagnostics;
 
@@ -7,16 +10,14 @@ namespace Parcial2_BoteroAgudeloJessicaMaria.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private IEnumerable<object> personas;
 
         public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
+        public IActionResult Index => View();
 
         public IActionResult Privacy()
         {
@@ -29,4 +30,4 @@ namespace Parcial2_BoteroAgudeloJessicaMaria.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
-}
+        

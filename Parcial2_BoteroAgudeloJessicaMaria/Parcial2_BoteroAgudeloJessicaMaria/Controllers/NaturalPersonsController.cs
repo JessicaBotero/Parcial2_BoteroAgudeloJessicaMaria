@@ -45,16 +45,14 @@ namespace Parcial2_BoteroAgudeloJessicaMaria.Controllers
             return View(naturalPerson);
         }
 
-        // GET: NaturalPersons/Create
+        // GET: NaturalPersons/Create //Get=Select
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: NaturalPersons/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
+         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("FullName,Email,BirthYear,Age,Id,CreatedDate,ModifiedDate")] NaturalPerson naturalPerson)
         {
@@ -159,6 +157,15 @@ namespace Parcial2_BoteroAgudeloJessicaMaria.Controllers
         private bool NaturalPersonExists(Guid id)
         {
           return (_context.naturalPeople?.Any(e => e.Id == id)).GetValueOrDefault();
+        }
+
+
+        private int CalculateAge(int BirthYear)
+        {
+            DateTime CreatedDate = DateTime.Now;
+            int Age = CreatedDate.Year - BirthYear;
+
+            return Age;
         }
     }
 }
