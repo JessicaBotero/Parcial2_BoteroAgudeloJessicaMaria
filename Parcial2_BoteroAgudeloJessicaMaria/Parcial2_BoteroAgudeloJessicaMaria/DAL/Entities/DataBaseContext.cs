@@ -14,6 +14,7 @@ namespace Parcial2_BoteroAgudeloJessicaMaria.DAL
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.Entity<NaturalPerson>().HasIndex(c => c.FullName).IsUnique(); //Duplicidad del nombre
+            modelBuilder.Entity<NaturalPerson>().HasIndex(c => c.Email).IsUnique(); //Duplicidad del nombre
         }
 
         public DbSet<NaturalPerson> naturalPeople { get; set; }

@@ -10,17 +10,17 @@ namespace Parcial2_BoteroAgudeloJessicaMaria.DAL.Entities
         public string FullName { get; set; }
 
 
-
+        [Required]
         [Display(Name = "Correo Electrónico")]
         [MaxLength(100, ErrorMessage = "El campo {0} debe tener máximo {1} caracteres")]
         public string Email { get; set; }
 
 
 
-        [Display(Name = "Fecha de cumpleaños")]
+        [Display(Name = "Año de cumpleaños")]
         public int BirthYear { get; set; }
 
-
+        
 
         [Display(Name = "Edad")]
         public int Age { get; set;}
